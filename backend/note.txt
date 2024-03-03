@@ -1,0 +1,11 @@
+npm init
+npm i express mongoose dotenv cookie-parser
+
+
+add this "type": "module", in package.json for import liek 
+import express from "express";
+
+//if you have to send some data in hte body using json then use post
+but still if you want to use get then use query / params and use get 
+
+always use dynamic route at the end 
