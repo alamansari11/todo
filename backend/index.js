@@ -1,20 +1,4 @@
-import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-
-export const sendCookie = (user, res, message, statusCode = 200) =>{
-    const token = jwt.sign({_id: user._id}, process.env.JWT_SECRET);
-
-  res
-  .status(statusCode)
-  .cookie("token",token,{
-    httpOnly: true,
-    maxAge: 15*60*1000
-  })
-  .json({
-    success: true,
-    message,
-  })
-}
 
 // Function to hash (encrypt) a password
 async function hashPassword(password) {
@@ -37,4 +21,18 @@ async function comparePasswords(password, hashedPassword) {
   }
 }
 
-export {hashPassword,comparePasswords};
+// Example usage
+async function example() {
+  const originalPassword = 'mySecurePassword';
+
+  // Hash the password
+  const hashedPassword = await hashPassword(originalPassword);
+  console.log('Hashed Password:', hashedPassword);
+
+  // Compare the password with its hash
+  const isMatch = await comparePasswords(originalPassword, hashedPassword);
+  console.log('Password Match:', isMatch);
+}
+
+// Call the example function
+example();

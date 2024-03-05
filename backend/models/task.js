@@ -22,4 +22,6 @@ const schema = new mongoose.Schema({
     default: Date.now,
   }
 });
-export const User = mongoose.model("Task", schema);
+const Task = mongoose.model("Task", schema);
+
+export default Task;
