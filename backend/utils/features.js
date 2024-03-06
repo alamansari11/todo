@@ -8,7 +8,11 @@ export const sendCookie = (user, res, message, statusCode = 200) =>{
   .status(statusCode)
   .cookie("token",token,{
     httpOnly: true,
-    maxAge: 15*60*1000
+    maxAge: 15*60*1000,
+    // sameSite: "none",
+    // secure: true,
+    sameSite: process.env.NODE_EVN === "dev" ? "lax": "none",
+    secure:process.env.NODE_EVN === "dev" ? false: true,
   })
   .json({
     success: true,

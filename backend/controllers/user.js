@@ -26,9 +26,12 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
  try {
-  res.status(200).cookie("token","",{expires: new Date(Date.now())}).json({
+  res.status(200)
+  .cookie("token","",{expires: new Date(Date.now())}).json({
     success: true,
     message: "Logout successfull",
+    sameSite: process.env.NODE_EVN === "dev" ? "lax": "none", // for accessing the resources when deployed with other origin
+    secure:process.env.NODE_EVN === "dev" ? false: true, // for accessing cookies and credentials 
   });
  } catch (error) {
   next(error);
