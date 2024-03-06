@@ -41,4 +41,4 @@ async function comparePasswords(password, hashedPassword) {
   }
 }
 
-export {hashPassword,comparePasswords};
+export {hashPassword,comparePasswords}; 
