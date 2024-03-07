@@ -15,7 +15,6 @@ function Header() {
             <Link to={"/login"}>Login</Link>
         </article>
     </nav>
-    <Outlet />
     </>
   );
   }
