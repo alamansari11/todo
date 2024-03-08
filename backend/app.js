@@ -30,7 +30,7 @@ app.use("/api/v1/users",userRouter);
 app.use("/api/v1/task",taskRouter);
 
 app.get("/", (req, res) => {
-    return res.send("hello")
+    return res.send("Hello, Server is up and running");
 })
 
 //using error middleware

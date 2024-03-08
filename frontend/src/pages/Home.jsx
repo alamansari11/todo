@@ -8,7 +8,7 @@ function Home() {
     e.preventDefault();
     try {
       const {data} = await axios.get(
-        `${server}`,
+        `${server}/`,
           {
           headers: {
             "Content-Type": "application/json"
@@ -17,6 +17,7 @@ function Home() {
           }
         )
         setResponse(data);
+        console.log(data);
     } catch (error) {
       console.log(error);
     }

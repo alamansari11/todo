@@ -14,7 +14,7 @@ function Register() {
     try {
       console.log(name,email,password);
    const {data} = await axios.post(
-    `${server}/users/new`,
+    `${server}/api/v1/users/new`,
       {
       name,email,password
       },
