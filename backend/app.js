@@ -21,7 +21,7 @@ app.use(express.json()); // this should always be used first
 app.use(cookieParser())
 
 app.use(cors({
-  orgin: [process.env.FRONTEND_URL],
+  origin: [process.env.FRONTEND_URL],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 })); // this should always be used first
