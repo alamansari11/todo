@@ -1,0 +1,44 @@
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.todo__content {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.todo__title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.todo__description {
+  margin: 0;
+  color: #666;
+}
+
+.todoaction{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: red; */
+    width: 10%;
+}
+.todo .button {
+  outline: none;
+  background: transparent;
+  margin: 3%;
+}
+.todo input {
+  margin: 3%;
+}

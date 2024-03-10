@@ -1,13 +1,13 @@
+import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { server } from "../main";
+import { server } from "../../main";
 import toast from "react-hot-toast";
-import { context } from "../main";
+import { context } from "../../main";
 import { Navigate } from "react-router-dom";
+import "./Login.css"
 
-function Register() {
-  const [name, setName] = useState("");
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
@@ -17,9 +17,8 @@ function Register() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `${server}/api/v1/users/new`,
+        `${server}/api/v1/users/login`,
         {
-          name,
           email,
           password,
         },
@@ -41,17 +40,13 @@ function Register() {
   };
   if (isAuthenticated) return <Navigate to="/" />;
   return (
-    <div className="register">
-      <section>
-        <form onSubmit={submitHandler}>
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            type="text"
-            name="name"
-            placeholder="Name"
-            required
-          />
+    <div className="login">
+        <form onSubmit={submitHandler} className="login__form">
+          <div className="login__tagline">
+          <h3>Unlock Your Productivity: </h3>
+          Log in to Your Todo Universe and Make Every Task Count! 
+          </div>
+          
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -68,15 +63,13 @@ function Register() {
             placeholder="Password"
             required
           />
-          <button disabled={loading} type="submit">
-            Sign up
+          <button type="submit" disabled={loading}>
+            Login
           </button>
           <h4>OR</h4>
-          <Link to="/login">Login</Link>
+          <Link to="/register" className="login__option">Signup</Link>
         </form>
-      </section>
     </div>
   );
 }
-
-export default Register;
+export default Login;

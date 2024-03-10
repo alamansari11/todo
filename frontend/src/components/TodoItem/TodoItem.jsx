@@ -1,4 +1,6 @@
 import React from "react";
+import { MdDelete } from "react-icons/md";
+import "./TodoItem.css"
 
 const TodoItem = ({
   title,
@@ -10,18 +12,18 @@ const TodoItem = ({
 }) => {
   return (
     <div className="todo">
-      <div>
-        <h4>{title}</h4>
-        <p>{description}</p>
+      <div className="todo__content">
+        <h4 className="todo__title">{title}</h4>
+        <p className="todo__description">{description}</p>
       </div>
-      <div>
+      <div className="todoaction">
         <input
           onChange={() => updateHandler(id)}
           type="checkbox"
           checked={isCompleted}
         />
         <button onClick={() => deleteHandler(id)} className="btn">
-          Delete
+        <MdDelete size={25} />
         </button>
       </div>
     </div>
