@@ -3,35 +3,39 @@ import userRouter from "./routes/user.js";
 import taskRouter from "./routes/task.js";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
-import { errorMiddleware } from "./middlewares/errror.js";
+import { errorMiddleware } from "./middlewares/error.js"; // Corrected typo: 'error' to 'error'
 import cors from "cors";
 
-
-
+// Creating an instance of the Express application
 export const app = express();
 
+// Configuring environment variables from the 'config.env' file in the 'data' folder
 config({
-  path:"./data/config.env",
- });
+  path: "./data/config.env",
+});
 
-//using middleware to use json data
-app.use(express.json()); // this should always be used first
+// Using middleware to parse incoming JSON data
+app.use(express.json()); // This should always be used first
 
-// This is required to access cookies always call it using () other wise it won't work
-app.use(cookieParser())
+// Using cookieParser middleware to handle cookies
+// Note: Always call it using () otherwise it won't work
+app.use(cookieParser());
 
+// Configuring CORS middleware to allow requests from the specified origin
 app.use(cors({
   origin: [process.env.FRONTEND_URL],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
-})); // this should always be used first
+})); // This should always be used first
 
-app.use("/api/v1/users",userRouter);
-app.use("/api/v1/task",taskRouter);
+// Routing for user and task endpoints
+app.use("/api/v1/users", userRouter);
+app.use("/api/v1/task", taskRouter);
 
+// Default route for testing server status
 app.get("/", (req, res) => {
-    return res.send("Hello, Server is up and running");
-})
+  return res.send("Hello, Server is up and running");
+});
 
-//using error middleware
+// Using error middleware to handle and log errors
 app.use(errorMiddleware);

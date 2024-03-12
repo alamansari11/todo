@@ -9,3 +9,31 @@ import express from "express";
 but still if you want to use get then use query / params and use get 
 
 always use dynamic route at the end 
+
+
+MVC (Model-View-Controller) in Backend:
+
+MVC is an architectural pattern for designing backend projects. It divides the application into three components:
+
+Model: Manages data and business logic.
+View: Presents data to users and handles the user interface.( view here is our routes section)
+Controller: Intermediary between Model and View, processes user inputs.
+
+Benefits:
+Separation of Concerns
+Modularity
+Testability
+
+
+we can have all the configuration in config.env file which is under data folder 
+and we can access these configuration anywhere in the project using 
+
+process.env.PORT
+but we have to configure the configuration for that  we need dotenv module and set it like below
+
+
+import { config } from "dotenv";
+// Configuring environment variables from the 'config.env' file in the 'data' folder
+config({
+  path: "./data/config.env",
+});
