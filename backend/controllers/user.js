@@ -39,9 +39,10 @@ export const login = async (req, res, next) => {
 export const logout = async (req, res, next) => {
   try {
     // Clearing the token cookie and sending a logout success message
+   
     res
       .status(200)
-      .cookie("token", "", { expires: new Date(0), path: "/",httpOnly: true })
+      .clearCookie('token')
       .json({
         success: true,
         message: "Logout successful",

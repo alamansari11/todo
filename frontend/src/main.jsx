@@ -6,6 +6,7 @@ import "./App.css";
 
 // Defining the URL for the server API
 export const server = "https://todo-flq7.onrender.com";
+// export const server = "http://localhost:3000";
 
 // Creating a React context to manage global state
 export const context = createContext({ isAuthenticated: false });
