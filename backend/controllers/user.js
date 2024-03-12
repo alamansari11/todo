@@ -39,8 +39,9 @@ export const login = async (req, res, next) => {
 export const logout = async (req, res, next) => {
   try {
     // Clearing the token cookie and sending a logout success message
-    res.status(200)
-      .cookie("token", "", { expires: new Date(0) })
+    res
+      .status(200)
+      .cookie("token", "", { expires: new Date(0), path: "/",httpOnly: true })
       .json({
         success: true,
         message: "Logout successful",
@@ -56,7 +57,6 @@ export const logout = async (req, res, next) => {
 // Controller function for user registration
 export const register = async (req, res, next) => {
   try {
-
     // Destructuring name, email, and password from the request body
     const { name, email, password } = req.body;
 

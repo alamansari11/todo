@@ -5,6 +5,9 @@
   justify-content: center;
   /* background-color: red; */
 }
+.container section{
+  width: auto;
+}
 .container .todoform {
   display: flex;
   flex-direction: column;
@@ -20,7 +23,7 @@
   width: 100%;
 }
 .todoform textarea {
-  width: 100%;
+  /* width: 100%; */
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
